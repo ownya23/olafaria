@@ -1,8 +1,6 @@
 name: Node.js Package
 
-on:
-  release:
-    types: [created]
+on: push
 
 jobs:
   build:
@@ -25,6 +23,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+      - run: npm install    
       - run: npm ci
       - run: npm publish
         env:
